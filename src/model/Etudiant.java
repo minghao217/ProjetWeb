@@ -27,6 +27,7 @@ public class Etudiant {
 	private Collection<Troc> offreDeposee; 
 	private Collection<Troc> offreDemandee;
 	private Map<Creneau,Troc> historique; 
+	private String userName ; // nom + identifiant
 	
 	
 	public Etudiant(int id, String nom, String prenom, Adresse adresse, String mdp, Niveau niveau, int nbreSignal,String email) {
