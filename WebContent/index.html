@@ -18,16 +18,18 @@
 		<h1>Login Form</h1>
 		 <div class="alert-close"> </div> 			
 	</div>
-		<form>
+		<form action="Servlet" method="GET">
 			<li>
-				<input type="text" class="text" value="Username"><a href="#" class=" icon user"></a>
+				<input type="text" class="text" name="Username"><a href="#" class=" icon user"></a>
 			</li>
 				<div class="clear"> </div>
 			<li>
-				<input type="password" value="Password"> <a href="#" class="icon lock"></a>
+				<input type="password" name="Password"> <a href="#" class="icon lock"></a>
 			</li>
 			<div class="submit">
-				<input type="submit" value="Sign in" >
+				<p><input type="hidden" name="op" value="LOGIN"><p>
+				<input type="SUBMIT" value="Sign in" >
+				
 				<h4><a href="#">Lost your Password ?</a></h4>
 			</div>
 				
@@ -36,10 +38,5 @@
 	</div>
 	</div>
 	<div class="clear"> </div>
-<!--- footer --->
-<div class="footer">
-	<p>Copyright &copy; 2014.</p>
-</div>
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>
