@@ -10,6 +10,7 @@ public class Historique {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	
     private Troc troc; 
     private Etudiant beneficiaire; 
     private Etudiant proprio; 
