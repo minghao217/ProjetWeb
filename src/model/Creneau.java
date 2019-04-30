@@ -1,9 +1,9 @@
 package model;
 
+import java.io.Serializable;
 
-
-public class Creneau {
-	//@ManyToOne
+public class Creneau implements Serializable{
+	
 	private Troc troc ; 
 	private String debut; 
 	private String fin;

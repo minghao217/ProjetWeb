@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -16,7 +17,7 @@ import enumerations.Etat;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Troc {
+public  class Troc {
 	
 	
    @Id 
@@ -25,19 +26,19 @@ public abstract class Troc {
    @ManyToOne
    private Domaine domaine; 
    @OneToMany(fetch = FetchType.EAGER,mappedBy="troc")
-   private Collection<Media> media; // photos ou vidéos 
+   private Collection<Media> media = new ArrayList<Media>();; // photos ou vidéos 
    @ManyToOne
    private Etudiant proprio; 
    private int duree; // duréee maximale du prête
-   @OneToMany(fetch = FetchType.EAGER,mappedBy="troc")
-   private Collection<Creneau> creneau; //la liste des disponibilités
+   
+   private ArrayList<Creneau> creneau = new ArrayList<Creneau>(); //la liste des disponibilités
    private Etat etat; 
    @OneToMany(fetch = FetchType.EAGER,mappedBy="troc")
-   private Collection<Avis> avis;
+   private Collection<Avis> avis = new ArrayList<Avis>();
    
    //private Collection<Historique> historique; 
    
-   public Troc(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, Collection<Creneau> creneau,
+   public Troc(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, ArrayList<Creneau> creneau,
 			Etat etat, Collection<Avis> avis) {
 		super();
 		this.domaine = domaine;
@@ -49,6 +50,10 @@ public abstract class Troc {
 		this.avis = avis;
 	}
    
+public Troc() {
+	super();
+}
+
 public int getId() {
 	return id;
 }
@@ -83,7 +88,7 @@ public void setDuree(int duree) {
 public Collection<Creneau> getCreneau() {
 	return creneau;
 }
-public void setCreneau(Collection<Creneau> creneau) {
+public void setCreneau(ArrayList<Creneau> creneau) {
 	this.creneau = creneau;
 }
 public Etat getEtat() {

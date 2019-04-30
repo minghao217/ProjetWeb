@@ -1,19 +1,31 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+import enumerations.Etat;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public class MachinesDivers {
+@PrimaryKeyJoinColumn(name = "id")
+public class MachinesDivers extends Troc{
     private String nom; 
     private String description;
-	public MachinesDivers(String nom, String description) {
-		super();
+    
+    
+	
+
+	public MachinesDivers(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree,
+			ArrayList<Creneau> creneau, Etat etat, Collection<Avis> avis, String nom, String description) {
+		super(domaine, media, proprio, duree, creneau, etat, avis);
 		this.nom = nom;
 		this.description = description;
 	}
+	
 	public String getNom() {
 		return nom;
 	}

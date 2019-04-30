@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.Entity;
@@ -19,8 +20,8 @@ public class Services extends Troc {
    
    
    
-public Services(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, Collection<Creneau> creneau,
-			Etat etat, Collection<Avis> avis, TypeService type, boolean materielFourni) {
+public Services(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, ArrayList<Creneau> creneau,
+			Etat etat, ArrayList<Avis> avis, TypeService type, boolean materielFourni) {
 		super(domaine, media, proprio, duree, creneau, etat, avis);
 		this.type = type;
 		this.materielFourni = materielFourni;

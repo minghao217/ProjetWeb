@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 
@@ -21,9 +22,18 @@ public class Adresse {
 	private String rue; 
 	private final String ville = "Toulouse"; 
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="adresse")
-	private Collection<Etudiant> etudiants;
+	private Collection<Etudiant> etudiants = new ArrayList<>();;
 	
 	
+	public Adresse(String rue) {
+		super();
+		this.rue = rue;
+	}
+
+	public Adresse() {
+		super();
+	}
+
 	public Adresse(String rue, Collection<Etudiant> etudiants) {
 		super();
 		this.rue = rue;

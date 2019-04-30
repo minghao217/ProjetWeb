@@ -1,6 +1,8 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -34,19 +36,25 @@ public class Etudiant {
 	private String tel;
 	
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="beneficiaire")
-	private Collection<Avis> comments;
+	private Collection<Avis> comments = new ArrayList<>();
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="proprio")
-	private Collection<Troc> offreDeposee; 
+	private Collection<Troc> offreDeposee = new ArrayList<>();; 
 	// un Etudiant demande plusieurs Trocs
 	// mjb  : je propose : private Troc offreDemandee + OneToOne 
 	// càs un étudiant ne peut demander qu'un seul troc à la fois (juste pour faciliter avec optionItem)
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="proprio")
-	private Collection<Troc> offreDemandee;
+	private Collection<Troc> offreDemandee = new ArrayList<>();;
 	// A ajouter une annotation si c'est nécessaire  
-	private Map<Creneau,Troc> historique; 
+	//private HashMap<Creneau,Troc> historique = new HashMap<>(); 
 	private String userName ; // nom + identifiant
 	
 	
+	public Etudiant() {
+		super();
+	}
+
+
+
 	public Etudiant(int id, String nom, String prenom, Adresse adresse, String mdp, Niveau niveau, int nbreSignal,String email) {
 		super();
 		this.id = id;
@@ -67,6 +75,7 @@ public class Etudiant {
 		this.prenom = prenom;
 		this.email = email;
 		this.tel = tel;
+		
 	}
 
 
@@ -75,8 +84,8 @@ public class Etudiant {
 
 
 	public Etudiant(String nom, String prenom, Adresse adresse, String mdp, Niveau niveau, int nbreSignal, String email,
-			String tel, Collection<Avis> comments, Collection<Troc> offreDeposee, Collection<Troc> offreDemandee,
-			Map<Creneau, Troc> historique) {
+			String tel, Collection<Avis> comments, Collection<Troc> offreDeposee, Collection<Troc> offreDemandee
+			) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -89,7 +98,7 @@ public class Etudiant {
 		this.comments = comments;
 		this.offreDeposee = offreDeposee;
 		this.offreDemandee = offreDemandee;
-		this.historique = historique;
+		//this.historique = historique;
 	}
 
 
@@ -215,14 +224,7 @@ public class Etudiant {
 	}
 
 
-	public Map<Creneau, Troc> getHistorique() {
-		return historique;
-	}
-
-
-	public void setHistorique(Map<Creneau, Troc> historique) {
-		this.historique = historique;
-	}
+	
 
 	
 	
