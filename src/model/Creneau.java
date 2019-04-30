@@ -3,7 +3,7 @@ package model;
 import javax.persistence.ManyToOne;
 
 public class Creneau {
-	@ManyToOne
+	//@ManyToOne
 	private Troc troc ; 
 	private String debut; 
 	private String fin;
