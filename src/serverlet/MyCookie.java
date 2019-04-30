@@ -51,6 +51,9 @@ public class MyCookie extends HttpServlet {
 	        
 			//request.getRequestDispatcher("index.html").forward(request,response);
 		}
+else if (op.equals("New")){
+			
+		}
 	}
 
 	/**
@@ -92,6 +95,9 @@ public class MyCookie extends HttpServlet {
 	         }
 	         out.println("</body>");
 	         out.println("</html>");
+		}
+		else if (op.equals("New")){
+			
 		}
 	}
 }
