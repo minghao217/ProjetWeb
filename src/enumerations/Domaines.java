@@ -2,7 +2,7 @@ package enumerations;
 
 public enum Domaines {
     Musique, 
-    Sport, 
+    Sport,
     Services,
     Jeu, 
     Divers; 
