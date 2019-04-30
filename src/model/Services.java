@@ -2,20 +2,29 @@ package model;
 
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
 import enumerations.Domaines;
+import enumerations.Etat;
 import enumerations.TypeService;
 
 // mjb : Service est un Domaine
-public class Services extends Domaine {
-   public Services(Domaines nom, String description, Collection<Troc> troc) {
-		super(nom, description, troc);
-		// TODO Auto-generated constructor stub
+@Entity
+@PrimaryKeyJoinColumn(name = "id")
+public class Services extends Troc {
+	private TypeService type; 
+	private boolean materielFourni;
+	
+   
+   
+   
+public Services(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, Collection<Creneau> creneau,
+			Etat etat, Collection<Avis> avis, TypeService type, boolean materielFourni) {
+		super(domaine, media, proprio, duree, creneau, etat, avis);
+		this.type = type;
+		this.materielFourni = materielFourni;
 	}
-   
-private TypeService type; 
-   private boolean materielFourni;
-   
-   
 public TypeService getType() {
 	return type;
 }

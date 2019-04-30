@@ -2,20 +2,32 @@ package model;
 
 import java.util.Collection;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
 import enumerations.Domaines;
+import enumerations.Etat;
 
 // mjb : JeuVideo est un Domaine
-public class JeuVideos extends Domaine {
-	
-	public JeuVideos(Domaines nom, String description, Collection<Troc> troc) {
-		super(nom, description, troc);
-		// TODO Auto-generated constructor stub
-	}
+@Entity
+@PrimaryKeyJoinColumn(name = "id")
+public class JeuVideos extends Troc {
 	
 	private String nomJeu;
 	private int nbreJoueur;
 	private String description;
 	
+	
+	
+	
+	
+	public JeuVideos(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, Collection<Creneau> creneau,
+			Etat etat, Collection<Avis> avis, String nomJeu, int nbreJoueur, String description) {
+		super(domaine, media, proprio, duree, creneau, etat, avis);
+		this.nomJeu = nomJeu;
+		this.nbreJoueur = nbreJoueur;
+		this.description = description;
+	}
 	public String getNomJeu() {
 		return nomJeu;
 	}
