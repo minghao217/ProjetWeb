@@ -36,7 +36,7 @@ Copy this code in your html file.
 			<i class="fa fa-arrow-left" onclick="Back()"></i>
 		</div>
 		<p class="h2 text-center">Form</p>
-		<form action="MyCookie" method="GET">
+		<form action="MyCookie" method="get">
 			<div class="preview text-center">
 				<img class="preview-img"
 					src="http://simpleicon.com/wp-content/uploads/account.png"
@@ -48,10 +48,24 @@ Copy this code in your html file.
 				<span class="Error"></span>
 			</div>
 			<div class="form-group">
-				<label>Full Name:</label> <input class="form-control" type="text"
-					name="fullname" required placeholder="Enter Your Full Name" /> <span
+				<label>First Name:</label> <input class="form-control" type="text"
+					name="Firstname" required placeholder="Enter Your First Name" /> <span
 					class="Error"></span>
 			</div>
+			
+			<div class="form-group">
+				<label>Family Name:</label> <input class="form-control" type="text"
+					name="Familytname" required placeholder="Enter Your Family Name" /> <span
+					class="Error"></span>
+			</div>
+			
+			<div class="form-group">
+				<label>Address:</label> <input class="form-control" type="text"
+					name="Address" required placeholder="Enter Your address" /> <span
+					class="Error"></span>
+			</div>
+			
+			
 			<div class="form-group">
 				<label>Email:</label> <input class="form-control" type="email"
 					name="email" required placeholder="Enter Your Email" /> <span
@@ -69,14 +83,20 @@ Copy this code in your html file.
 					type="radio" name="gender" required value="Other" /> Other</label> <span
 					class="Error"></span>
 			</div>
+			
+			<div class="form-group">
+				<label>Level:</label><br /> <label><input type="radio"
+					name="level" required value="1A" checked /> 1A</label> <label><input
+					type="radio" name="level" required value="2A" /> 2A</label> <label><input
+					type="radio" name="gender" required value="3A" /> 3A</label> <span
+					class="Error"></span>
+			</div>
 			<div class="form-group">
 			    <p>
-						<input type="hidden" name="op" value="NEW">
+						<input type="hidden" name="op" value="New">
 					<p>
 						<input type="SUBMIT" value="Sign up">
-					<h4>
-						
-					</h4>
+					
 				</div>
 		</form>
 	</div>
