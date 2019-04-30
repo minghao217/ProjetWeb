@@ -17,7 +17,20 @@ public class MyCookie extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String op = request.getParameter("op");
 		//response.getWriter().println("<html><body>Hello World !</body></html>");
-		if (op.equals("LOGIN")) 
+		 if (op.equals("New")){   	   
+ 	   String firstName = request.getParameter("Firstname");
+ 	   String familyName = request.getParameter("Familytname");
+ 	   String rue = request.getParameter("Address"); 
+ 	   String mail = request.getParameter("email"); 
+ 	   String mdp = request.getParameter("password"); 
+ 	   String gender = request.getParameter("gender"); 
+ 	   String level = request.getParameter("level"); 
+ 	   
+ 	   //initialiser l'etudiant 
+ 	   response.getWriter().println("<html><body>Hello World !</body></html>");
+ 	   request.getRequestDispatcher("testcookie.html").forward(request,response); 
+		}
+		else if (op.equals("LOGIN")) 
 		{
 			String nom = request.getParameter("Username");
 			String prenom = request.getParameter("Password");
@@ -51,9 +64,7 @@ public class MyCookie extends HttpServlet {
 	        
 			//request.getRequestDispatcher("index.html").forward(request,response);
 		}
-else if (op.equals("New")){
-			
-		}
+       
 	}
 
 	/**
@@ -96,8 +107,6 @@ else if (op.equals("New")){
 	         out.println("</body>");
 	         out.println("</html>");
 		}
-		else if (op.equals("New")){
-			
-		}
+		
 	}
 }
