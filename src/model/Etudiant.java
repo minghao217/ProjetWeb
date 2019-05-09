@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -18,7 +19,7 @@ import javax.persistence.OneToOne;
 import enumerations.Niveau;
 
 @Entity 
-public class Etudiant {
+public class Etudiant implements Serializable {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,12 +29,14 @@ public class Etudiant {
 	//Mjb : je suis pas trés convaincu par le faite qu'une adresse aie plusieurs Etudiants (Colocation)
 	@ManyToOne
 	private Adresse adresse; 
+	private String gender; 
 	
 	private String mdp; 
 	private Niveau niveau; 
 	private int nbreSignal;
 	private String email; 
 	private String tel;
+	private String level; 
 	
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="beneficiaire")
 	private Collection<Avis> comments = new ArrayList<>();
@@ -68,7 +71,31 @@ public class Etudiant {
 	
 		
 
-// Pour l'eregistrement
+public String getLevel() {
+		return level;
+	}
+
+
+
+	public String getGender() {
+	return gender;
+}
+
+
+
+public void setGender(String gender) {
+	this.gender = gender;
+}
+
+
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+
+
+	// Pour l'eregistrement
 	public Etudiant(String nom, String prenom, String email, String tel) {
 		super();
 		this.nom = nom;
@@ -221,6 +248,98 @@ public class Etudiant {
 
 	public void setOffreDemandee(Collection<Troc> offreDemandee) {
 		this.offreDemandee = offreDemandee;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
+		result = prime * result + ((comments == null) ? 0 : comments.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + id;
+		result = prime * result + ((mdp == null) ? 0 : mdp.hashCode());
+		result = prime * result + nbreSignal;
+		result = prime * result + ((niveau == null) ? 0 : niveau.hashCode());
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + ((offreDemandee == null) ? 0 : offreDemandee.hashCode());
+		result = prime * result + ((offreDeposee == null) ? 0 : offreDeposee.hashCode());
+		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
+		result = prime * result + ((tel == null) ? 0 : tel.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		return result;
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Etudiant other = (Etudiant) obj;
+		if (adresse == null) {
+			if (other.adresse != null)
+				return false;
+		} else if (!adresse.equals(other.adresse))
+			return false;
+		if (comments == null) {
+			if (other.comments != null)
+				return false;
+		} else if (!comments.equals(other.comments))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (id != other.id)
+			return false;
+		if (mdp == null) {
+			if (other.mdp != null)
+				return false;
+		} else if (!mdp.equals(other.mdp))
+			return false;
+		if (nbreSignal != other.nbreSignal)
+			return false;
+		if (niveau != other.niveau)
+			return false;
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
+			return false;
+		if (offreDemandee == null) {
+			if (other.offreDemandee != null)
+				return false;
+		} else if (!offreDemandee.equals(other.offreDemandee))
+			return false;
+		if (offreDeposee == null) {
+			if (other.offreDeposee != null)
+				return false;
+		} else if (!offreDeposee.equals(other.offreDeposee))
+			return false;
+		if (prenom == null) {
+			if (other.prenom != null)
+				return false;
+		} else if (!prenom.equals(other.prenom))
+			return false;
+		if (tel == null) {
+			if (other.tel != null)
+				return false;
+		} else if (!tel.equals(other.tel))
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		return true;
 	}
 
 

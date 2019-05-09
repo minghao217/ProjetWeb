@@ -4,14 +4,18 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.List;
 
 import javax.ejb.EJB;
+import javax.persistence.TypedQuery;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 
 import model.Adresse;
 import model.Etudiant;
@@ -23,24 +27,9 @@ public class MyCookie extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String op = request.getParameter("op");
 		//response.getWriter().println("<html><body>Hello World !</body></html>");
-		if (op.equals("New")){   	   
- 	    String firstName = request.getParameter("Firstname");
- 	   String familyName = request.getParameter("Familytname");
- 	   String rue = request.getParameter("Address"); 
- 	   String mail = request.getParameter("email"); 
- 	   String mdp = request.getParameter("password"); 
- 	   String gender = request.getParameter("gender"); 
- 	   String level = request.getParameter("level"); 
- 	   /***Test ***/
- 	     Etudiant et = new Etudiant("OUBAIDI", "Hajar", "oubaidihajar@gmail.com", "0666677"); 
-		 Adresse ad = new Adresse("22 Rue des 7 Troubadours"); 
-		 c.ajouterEtudiant(et, ad);
- 	   
- 	   //initialiser l'etudiant 
- 	   response.getWriter().println("<html><body>Hello World !</body></html>");
- 	   request.getRequestDispatcher("testcookie.html").forward(request,response); 
-		}
-		else if (op.equals("LOGIN")) 
+	   
+		
+		 if (op.equals("LOGIN")) 
 		{
 			String nom = request.getParameter("Username");
 			String prenom = request.getParameter("Password");

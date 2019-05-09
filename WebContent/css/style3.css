@@ -1,86 +1,74 @@
 /* Copy this code in your css file. */
-
-html,body
-{
-    width: 500px;
-    margin: auto;
-}
-.container
-{
-    width: 500px;
-    margin: 20px auto;
+html, body {
+	width: 500px;
+	margin: auto;
 }
 
-.preview
-{
-    padding: 10px;
-    position: relative;
+.container {
+	width: 500px;
+	margin: 20px auto;
 }
 
-.preview i
-{
-    color: white;
-    font-size: 35px;
-    transform: translate(50px,130px);
+.preview {
+	padding: 10px;
+	position: relative;
 }
 
-.preview-img
-{
-    border-radius: 100%;
-    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.7);
+.preview i {
+	color: white;
+	font-size: 35px;
+	transform: translate(50px, 130px);
 }
 
-.browse-button
-{
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    position: absolute; /* Tweak the position property if the element seems to be unfit */
-    top: 10px;
-    left: 132px;
-    background: linear-gradient(180deg, transparent, black);
-    opacity: 0;
-    transition: 0.3s ease;
+.preview-img {
+	border-radius: 100%;
+	box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.7);
 }
 
-.browse-button:hover
-{
-    opacity: 1;
+.browse-button {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	position: absolute;
+	/* Tweak the position property if the element seems to be unfit */
+	top: 10px;
+	left: 132px;
+	background: linear-gradient(180deg, transparent, black);
+	opacity: 0;
+	transition: 0.3s ease;
 }
 
-.browse-input
-{
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    transform: translate(-1px,-26px);
-    opacity: 0;
+.browse-button:hover {
+	opacity: 1;
 }
 
-.form-group
-{
-    width:  250px;
-    margin: 10px auto;
+.browse-input {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	transform: translate(-1px, -26px);
+	opacity: 0;
 }
 
-.form-group input
-{
-    transition: 0.3s linear;
+.form-group {
+	width: 250px;
+	margin: 10px auto;
 }
 
-.form-group input:focus
-{
-    border: 1px solid crimson;
-    box-shadow: 0 0 0 0;
+.form-group input {
+	transition: 0.3s linear;
 }
 
-.Error
-{
-    color: crimson;
-    font-size: 13px;
+.form-group input:focus {
+	border: 1px solid crimson;
+	box-shadow: 0 0 0 0;
 }
 
-.Back
-{
-    font-size: 25px;
+.Error {
+	color: crimson;
+	font-size: 13px;
+}
+
+.Back {
+	font-size: 25px;
 }

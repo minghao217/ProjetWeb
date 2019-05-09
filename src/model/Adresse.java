@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Adresse {
+public class Adresse implements Serializable {
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)

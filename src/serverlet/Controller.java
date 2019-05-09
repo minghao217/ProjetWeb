@@ -37,6 +37,13 @@ public class Controller {
 		 etudiant.setAdresse(ad); 		 
 	 }
 	 
+	 public List<Etudiant> listerEtudiants(){
+		 TypedQuery<Etudiant> req =  em.createQuery("select et from Etudiant et " ,Etudiant.class);
+		 List<Etudiant> res = req.getResultList();
+		 return res; 
+		 
+	 }
+	 
 	 public void ajouterAdresse(Adresse ad){
 		 em.persist(ad);
 	 }
@@ -45,5 +52,14 @@ public class Controller {
 		 
 	 }
 	 
+	 public Etudiant findByName(String name){
+		 TypedQuery<Etudiant> req =  em.createQuery("select et from Etudiant et " + "where et.nom = '" + name + "'" ,Etudiant.class);
+		 List<Etudiant> res = req.getResultList();
+		 if (res.size()==0){
+			 return null; 
+		 }
+		 else 
+		  return res.get(0); 
+	 }
 	 
 }
