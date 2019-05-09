@@ -35,7 +35,7 @@ public class SignUp extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String op = request.getParameter("op");
 		//response.getWriter().println("<html><body>Hello World !</body></html>");
-	    if (op.equals("New")){   	   
+     if (op.equals("New")){   	   
  	   String firstName = request.getParameter("Firstname");
  	   String familyName = request.getParameter("Familytname");
  	   String rue = request.getParameter("Address"); 
@@ -43,7 +43,7 @@ public class SignUp extends HttpServlet {
  	   String mdp = request.getParameter("password"); 
  	   String gender = request.getParameter("gender"); 
  	   String level = request.getParameter("level"); 
- 	   /***Test ***/
+ 	  
  	   
  	   Etudiant etu = new Etudiant(familyName,firstName, mail,"0666677"); 
  	   Adresse adr = new Adresse(rue); 
@@ -51,20 +51,20 @@ public class SignUp extends HttpServlet {
  	   etu.setMdp(mdp);
  	   etu.setGender(gender);
  	   //c.ajouterEtudiant(etu, adr);
- 	   
- 	   
- 	   
- 	   
- 	   
- 	   if (c.findByName(familyName) != null){
- 		  request.getRequestDispatcher("RegisterError.html").forward(request,response);;
- 	   }
- 	   else {
+ 	     if (c.findByName(familyName) != null){
+ 		  request.getRequestDispatcher("RegisterError.html").forward(request,response);
+ 	   } 
+ 	    else {
  		  c.ajouterEtudiant(etu, adr);
  		  request.getRequestDispatcher("Register.html").forward(request,response);;
  		 //response.getWriter().println("<html><body>Ajout</body></html>");
  	   }
+
 		 }
+	    
+	    else {
+	    	response.getWriter().println("<html><body>Ajout</body></html>");
+	    }
 	}
 
 	/**

@@ -25,10 +25,10 @@ public class MyCookie extends HttpServlet {
 	@EJB 
 	private Controller c; 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String op = request.getParameter("op");
+		/**String op = request.getParameter("op");
 		//response.getWriter().println("<html><body>Hello World !</body></html>");
 	   
-		
+		//sauvegarder les cookies (nom,password)
 		 if (op.equals("LOGIN")) 
 		{
 			String nom = request.getParameter("Username");
@@ -62,7 +62,7 @@ public class MyCookie extends HttpServlet {
 	                "</body></html>");
 	        
 			//request.getRequestDispatcher("index.html").forward(request,response);
-		}
+		}**/
        
 	}
 
@@ -72,7 +72,8 @@ public class MyCookie extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String op = request.getParameter("op");
-		
+		String nom = request.getParameter("Username");
+		String password = request.getParameter("Password");
 		if (op.equals("LOGIN")) 
 		{
 			Cookie cookie = null;
@@ -90,22 +91,51 @@ public class MyCookie extends HttpServlet {
 	                   "<html>\n" +
 	                   "<head><title>" + title + "</title></head>\n" +
 	                   "<body bgcolor=\"#f0f0f0\">\n" );
-	          if( cookies != null ){
+	         
+	         
+	          if(  cookies != null ){
 	            out.println("<h2>Cookie 名称和值</h2>");
 	            out.println("key ："+cookies.length);
 	            for (int i = 0; i < cookies.length; i++){
 	               cookie = cookies[i];
-	               
-	               out.print("key：" + cookie.getName( ) + "，");
-	               out.print("value：" +  URLDecoder.decode(cookie.getValue(), "utf-8") +" <br/>");
-	            }
-	         }else{
-	             out.println(
-	               "<h2 class=\"tutheader\">No Cookie founds</h2>");
-	         }
-	         out.println("</body>");
-	         out.println("</html>");
+	               if(cookie.getName() == nom || cookie.getName() == password) {
+	            	   out.print("key：" + cookie.getName( ) + "，");
+		               out.print("value：" +  URLDecoder.decode(cookie.getValue(), "utf-8") +" <br/>");
+		               
+	               }
+	               else{
+	            	   
+
+	  	        	 Cookie nameCookie = new Cookie("name",
+	  	 	                URLEncoder.encode(request.getParameter("Username"), "UTF-8")); // 中文转码
+	  	 	        Cookie passwordCookie = new Cookie("password",
+	  	 	                      request.getParameter("Password"));
+	  	 	        nameCookie.setMaxAge(3600);
+	  	 	       passwordCookie.setMaxAge(3600);
+	  	 	        response.addCookie(nameCookie);
+	  	 	        response.addCookie(passwordCookie);
+	  	             out.println(
+	  	               "<h2 class=\"tutheader\">No Cookie founds</h2>");
+	  	         }
+	  	        
+	           
+	        	 
 		}
-		
+	          }
+	          else{
+           	   
+
+	  	        	 Cookie nameCookie = new Cookie("name",
+	  	 	                URLEncoder.encode(request.getParameter("Username"), "UTF-8")); // 中文转码
+	  	 	        Cookie passwordCookie = new Cookie("password",
+	  	 	                      request.getParameter("Password"));
+	  	 	        nameCookie.setMaxAge(3600);
+	  	 	       passwordCookie.setMaxAge(3600);
+	  	 	        response.addCookie(nameCookie);
+	  	 	        response.addCookie(passwordCookie);
+	  	             out.println(
+	  	               "<h2 class=\"tutheader\">No Cookie founds</h2>");
+	  	         }
+		}
 	}
-}
+		}
