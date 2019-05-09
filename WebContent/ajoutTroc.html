@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajout Troc</title>
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="css/style4.css" rel="stylesheet" type="text/css" media="all" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/js2.js"></script>
+
+</head>
+<body>
+<div class="container">
+	<div class="row destacados">  
+    <div class=" col-md-10">
+      	<div class="box1">
+          <h4>Poster votre Troc</h4>
+		</div>
+  	</div>
+  	</div>
+  	<div class="col-md-5">
+  		<div class="main-login main-center">
+					<form class="form-horizontal" method="post" action="AjoutTroc">
+
+						<div class="row destacados">  
+    					<div class=" col-md-10">
+				      	<div class="box2">
+				          <h4>Catégories </h4>
+						</div>
+					  	</div>
+					  	</div>
+						<div class="form-group">
+							<div class="cols-sm-12">
+							<select class="form-control" id ="categorie" name="categorie">
+								<option value="Categories">Categories</option>
+								<option value="Musique">Musique</option>
+								<option value="Sport">Sport</option>
+								<option value="Services">Services</option>
+								<option value="Jeu">Jeu</option>
+								<option value="Divers">Divers</option>
+								
+							</select>
+							</div>
+						</div>
+						<div class="row destacados">  
+    					<div class=" col-md-10">
+				      	<div class="box2">
+				          <h4>Durée ( en jours) </h4>
+						</div>
+					  	</div>
+					  	</div>
+						<div class="form-group">
+							<div class="cols-sm-12">
+								<input type="number" value="1" min="0" max="30" step="1" id ="duree" name="duree"/> Jours
+							</div>
+						</div>
+						
+						<div class="row destacados">  
+    					<div class=" col-md-10">
+				      	<div class="box2">
+				          <h4>Etat </h4>
+						</div>
+					  	</div>
+					  	</div>
+						<div class="form-group">
+							<div class="cols-sm-12">
+							<select class="form-control" id ="etat" name="etat">
+								<option value="Mauvais">Mauvais</option>
+								<option value="Bon">Bon</option>
+								<option value="Neuf">Neuf</option>
+								
+							</select>
+							</div>
+						</div>					
+						
+						<div class="row destacados">  
+    					<div class=" col-md-10">
+				      	<div class="box2">
+				          <h4>Titre et Déscription </h4>
+						</div>
+					  	</div>
+					  	</div>
+						<div class="form-group">
+							<div class="cols-sm-12">
+							<input type="text" class="form-control"  placeholder="Titre de votre annonce" id ="titre" name="titre"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="cols-sm-12">
+							<textarea class="form-control" placeholder="Décrivez en detail votre annonce" id ="description" name="description"></textarea>
+							</div>
+						</div>
+
+						<div class="row destacados">  
+    					<div class=" col-md-10">
+				      	<div class="box2">
+				          <h4>Télécharger des photos</h4>
+						</div>
+					  	</div>
+					  	</div>
+						<div class="form-group">
+							<label for="files" class="btn btn-info"><i class="glyphicon glyphicon-camera"></i> Ajouter des images </label>
+							<div class="cols-sm-12">
+							<input type="file" id="files" name="files" multiple />
+							</div>
+						</div>
+
+
+						<div class="form-group ">
+							<button type="submit" class="btn btn-success btn-lg btn-block login-button"><i class="glyphicon glyphicon-plus"></i> Poster l'annonce</button>
+							<input type="hidden" value="ajoutTroc" name="op">
+						</div>
+					</form>
+	</div>
+  	</div>
+</div>
+
+
+</body>
+</html>
