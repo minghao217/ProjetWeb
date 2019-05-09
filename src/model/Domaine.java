@@ -30,6 +30,17 @@ public class Domaine {
 		this.troc = troc;
 	}
 	
+
+	
+	public Domaine(Domaines nom, String description) {
+		super();
+		this.nom = nom;
+		this.description = description;
+	}
+
+
+
+
 	public int getId() {
 		return id;
 	}

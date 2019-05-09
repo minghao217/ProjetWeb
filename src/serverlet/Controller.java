@@ -8,8 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import enumerations.Domaines;
+import enumerations.Etat;
 import model.Adresse;
+import model.Domaine;
 import model.Etudiant;
+import model.Troc;
 
 @Singleton
 public class Controller {
@@ -60,6 +64,19 @@ public class Controller {
 		 }
 		 else 
 		  return res.get(0); 
+	 }
+	 
+	 public void ajouterTroc(String titre,String duree,String etat,String domaine)
+	 {
+		int dureeReel = Integer.parseInt(duree);
+		Etat etatReel = Etat.valueOf(etat);
+		Troc troc = new Troc(titre,dureeReel,etatReel) ; 
+//		em.persist(troc);
+		Domaines nomDom = Domaines.valueOf(domaine);
+		Domaine d = new Domaine(nomDom, domaine);
+		em.persist(d);
+		troc.setDomaine(d);
+		em.persist(troc);
 	 }
 	
 }

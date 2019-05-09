@@ -23,6 +23,7 @@ public  class Troc {
    @Id 
    @GeneratedValue(strategy = GenerationType.AUTO)
    private int id; 
+   private String title;
    @ManyToOne
    private Domaine domaine; 
    @OneToMany(fetch = FetchType.EAGER,mappedBy="troc")
@@ -50,9 +51,31 @@ public  class Troc {
 		this.avis = avis;
 	}
    
+   
+public Troc(String title, int duree, Etat etat) {
+	super();
+	this.title = title;
+	this.duree = duree;
+	this.etat = etat;
+}
+
+
+
 public Troc() {
 	super();
 }
+
+
+
+public String getTitle() {
+	return title;
+}
+
+
+public void setTitle(String title) {
+	this.title = title;
+}
+
 
 public int getId() {
 	return id;
