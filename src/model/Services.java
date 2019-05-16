@@ -21,7 +21,7 @@ public class Services extends Troc {
    
    
 public Services(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, ArrayList<Creneau> creneau,
-			Etat etat, ArrayList<Avis> avis, TypeService type, boolean materielFourni) {
+			String etat, ArrayList<Avis> avis, TypeService type, boolean materielFourni) {
 		super(domaine, media, proprio, duree, creneau, etat, avis);
 		this.type = type;
 		this.materielFourni = materielFourni;

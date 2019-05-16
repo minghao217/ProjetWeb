@@ -71,18 +71,18 @@ public class Controller {
 	public boolean ajouterTroc(String titre, String duree, String etat, String domaine, Date datedeb, Date datefin,
 			String name) throws ParseException {
 		// int dureeReel = Integer.parseInt(duree);
-		Etudiant et = findByName(name);
-		Etat etatReel = Etat.valueOf(etat);
+		String etatR = etat ; 
 		// Troc troc = new Troc(titre,dureeReel,etatReel) ;
 		Date datedebut = datedeb;
 		Date datefiin = datefin;
 
-		Troc troc = new Troc(titre, datedebut, datefiin, etatReel);
+		Troc troc = new Troc(titre, datedebut, datefiin, etatR);
 
 		TypedQuery<Domaine> req = em.createQuery("select dom from Domaine dom " + "where dom.nom = '" + domaine + "'",
 				Domaine.class);
 
 		Domaine dom1 = null;
+		Etudiant et = null ;
 
 		List<Domaine> res = req.getResultList();
 		if (res.size() != 0) {

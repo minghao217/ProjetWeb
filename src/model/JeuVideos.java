@@ -23,7 +23,7 @@ public class JeuVideos extends Troc {
 	
 	
 	public JeuVideos(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree, ArrayList<Creneau> creneau,
-			Etat etat, Collection<Avis> avis, String nomJeu, int nbreJoueur, String description) {
+			String etat, Collection<Avis> avis, String nomJeu, int nbreJoueur, String description) {
 		super(domaine, media, proprio, duree, creneau, etat, avis);
 		this.nomJeu = nomJeu;
 		this.nbreJoueur = nbreJoueur;

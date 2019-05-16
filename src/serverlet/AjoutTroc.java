@@ -90,7 +90,8 @@ public class AjoutTroc extends HttpServlet {
 		}
 		else if(op.equals("toutTroc"))
 		{
-			
+			request.setAttribute("listeTrocsServ", c.listeTroc());
+			request.getRequestDispatcher("toutTroc.jsp").forward(request, response);
 		}
 	}
 }

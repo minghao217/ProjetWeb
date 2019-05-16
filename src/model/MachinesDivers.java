@@ -20,7 +20,7 @@ public class MachinesDivers extends Troc{
 	
 
 	public MachinesDivers(Domaine domaine, Collection<Media> media, Etudiant proprio, int duree,
-			ArrayList<Creneau> creneau, Etat etat, Collection<Avis> avis, String nom, String description) {
+			ArrayList<Creneau> creneau, String etat, Collection<Avis> avis, String nom, String description) {
 		super(domaine, media, proprio, duree, creneau, etat, avis);
 		this.nom = nom;
 		this.description = description;
