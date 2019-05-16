@@ -58,6 +58,8 @@ public  class Troc {
 	}
    
    
+   
+   
 public Troc(String title, int duree, Etat etat) {
 	super();
 	this.title = title;
@@ -76,6 +78,17 @@ public Troc(String title, Date datedebut, Date datefin, Etat etat) {
 	this.datefin = datefin;
 	this.etat = etat;
 }
+
+
+public Troc(String title, Date datedebut, Date datefin, Etat etat,Etudiant et) {
+	super();
+	this.title = title;
+	this.datedebut = datedebut;
+	this.datefin = datefin;
+	this.etat = etat;
+	this.proprio = et;
+}
+
 
 
 public Troc() {
