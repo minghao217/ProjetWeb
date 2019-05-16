@@ -1,5 +1,8 @@
 package serverlet;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -11,6 +14,7 @@ import javax.persistence.TypedQuery;
 import enumerations.Domaines;
 import enumerations.Etat;
 import model.Adresse;
+import model.Creneau;
 import model.Domaine;
 import model.Etudiant;
 import model.Troc;
@@ -66,16 +70,22 @@ public class Controller {
 		  return res.get(0); 
 	 }
 	 
-	 public void ajouterTroc(String titre,String duree,String etat,String domaine)
+	 public void ajouterTroc(String titre,String duree,String etat,String domaine,Date datedeb , Date datefin) throws ParseException
 	 {
-		int dureeReel = Integer.parseInt(duree);
+//		int dureeReel = Integer.parseInt(duree);
 		Etat etatReel = Etat.valueOf(etat);
-		Troc troc = new Troc(titre,dureeReel,etatReel) ; 
+//		Troc troc = new Troc(titre,dureeReel,etatReel) ;
+		Date datedebut = datedeb ;
+		Date datefiin =datefin;
+		
+		Troc troc = new Troc(titre,datedebut,datefiin,etatReel);
 //		em.persist(troc);
 		Domaines nomDom = Domaines.valueOf(domaine);
+		// il faut que tu le récupére le domaine
 		Domaine d = new Domaine(nomDom, domaine);
 		em.persist(d);
 		troc.setDomaine(d);
+				
 		em.persist(troc);
 	 }
 	

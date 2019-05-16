@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -49,17 +52,42 @@ public class AjoutTroc extends HttpServlet {
 			String description = request.getParameter("description") ; 
 			String domaine = request.getParameter("categorie") ; 
 			String etat = request.getParameter("etat") ; 
+			String datedeb = request.getParameter("datedeb") ; 
+			String datefin = request.getParameter("datefin") ; 
+			
 			
 //			perso je ne vois pas comment faire pour récupérer les images 
 //			String files = request.getParameter("files") ;
 			
+
 			
-			c.ajouterTroc(titre,duree,etat,domaine);
+
+			
+			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+			Date date1 = null ; 
+			Date date2 = null ; 
+			try {
+			 date1 = format.parse(datedeb);
+			 date2 = format.parse(datefin);
+			 
+			 
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+			
+			
+			try {
+				c.ajouterTroc(titre,duree,etat,domaine ,date1,date2);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 			request.getRequestDispatcher("menu.html").forward(request, response);
 			
-//			
 //			response.getWriter().println("<html><body>");
-//			response.getWriter().println(duree + titre + description +categorie + etat ) ;
+//			response.getWriter().println(date1 ) ;
+//			response.getWriter().println(date2 ) ;
+//			
 //			response.getWriter().println("</body></html>");
 
 			
