@@ -37,6 +37,7 @@ public class Etudiant implements Serializable {
 	private String email; 
 	private String tel;
 	private String level; 
+	private String path; 
 	
 	@OneToMany(fetch = FetchType.EAGER,mappedBy="beneficiaire")
 	private Collection<Avis> comments = new ArrayList<>();
@@ -96,13 +97,13 @@ public void setGender(String gender) {
 
 
 	// Pour l'eregistrement
-	public Etudiant(String nom, String prenom, String email, String tel) {
+	public Etudiant(String nom, String prenom, String email, String tel ,String path) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.tel = tel;
-		
+		this.path = "./images/"+path;
 	}
 
 
@@ -140,6 +141,14 @@ public void setGender(String gender) {
 		this.id = id;
 	}
 
+	public String getpath() {
+		return this.path;
+	}
+
+
+	public void setpath(String path) {
+		this.path = path;
+	}
 
 	public String getNom() {
 		return nom;
