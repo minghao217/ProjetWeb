@@ -43,9 +43,9 @@ public class SignUp extends HttpServlet {
  	   String mdp = request.getParameter("password"); 
  	   String gender = request.getParameter("gender"); 
  	   String level = request.getParameter("level"); 
- 	  
+ 	   String path = request.getParameter("UploadedFile"); 
  	   
- 	   Etudiant etu = new Etudiant(familyName,firstName, mail,"0666677"); 
+ 	   Etudiant etu = new Etudiant(familyName,firstName, mail,"0666677",path); 
  	   Adresse adr = new Adresse(rue); 
  	   etu.setGender(gender);
  	   etu.setMdp(mdp);

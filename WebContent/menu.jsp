@@ -28,7 +28,7 @@
 		<%= request.getAttribute("nom")
 		%>
 		
-		<img src= "./images/test.jpg"/>
+		<img src= "<%= request.getAttribute("path")%>"/>
 	</div>
 	<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
 		data-target="#menu-content"></i>
