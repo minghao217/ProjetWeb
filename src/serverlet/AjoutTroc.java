@@ -1,6 +1,8 @@
 package serverlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.net.URLDecoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -8,6 +10,7 @@ import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -64,8 +67,21 @@ public class AjoutTroc extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			
+			Cookie cookie = null; 
+	        Cookie[] cookies = request.getCookies();
+	        String name=null; 
+	        if(  cookies != null ){  
+	            for (int i = 0; i < cookies.length; i++){
+	               cookie = cookies[i];
+	               if (cookie.getName().equals("name")){
+	            	   name = cookie.getValue(); 
+	               }              
+	            }}
+	        else {}
 
-			String name = "aaa";
+//			String name = "aaa";
 
 			try {
 				boolean t = c.ajouterTroc(titre, duree, etat, domaine, date1, date2, name);

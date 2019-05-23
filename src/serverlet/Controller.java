@@ -82,15 +82,16 @@ public class Controller {
 				Domaine.class);
 
 		Domaine dom1 = null;
-		Etudiant et = null ;
 
+		Etudiant proprietaire = findByName(name); 
+		
 		List<Domaine> res = req.getResultList();
 		if (res.size() != 0) {
 			dom1 = res.get(0);
 			troc.setDomaine(dom1);
 			em.persist(troc);
-			troc.setProprio(et);
-			Historique hist = new Historique(troc, null, et, datedebut, datefiin);
+			troc.setProprio(proprietaire);
+			Historique hist = new Historique(troc, null, proprietaire, datedebut, datefiin);
 			em.persist(hist);
 			return true;
 		} else {

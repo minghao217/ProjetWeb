@@ -41,7 +41,7 @@
 			</a></li>
 
 			<li data-toggle="collapse" data-target="#products"
-				class="collapsed active"><a href="#"><i
+				class="collapsed active"><a href="ajoutTroc.html"><i
 					class="fa fa-gift fa-lg"></i> Ajouter un Troc <span class="arrow"></span></a>
 			</li>
 			<ul class="sub-menu collapse" id="products">
@@ -59,7 +59,7 @@
 
 
 			<li data-toggle="collapse" data-target="#service" class="collapsed">
-				<a href="#"><i class="fa fa-globe fa-lg"></i> Voir la liste des
+				<a href="http://localhost:8080/En7/AjoutTroc?op=toutTroc"><i class="fa fa-globe fa-lg"></i> Voir la liste des
 					offres <span class="arrow"></span></a>
 			</li>
 			<ul class="sub-menu collapse" id="service">

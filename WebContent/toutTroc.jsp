@@ -67,10 +67,12 @@
 				Date datedebut = t.getDatedebut();
 				Date datefin = t.getDatefin();
 				String domaine = t.getDomaine().getNom();
+				String propr = t.getProprio().getNom();
 				
 				/* 				
 
 								String nomEtudiant = t.getProprio().getNom(); */
+			if(datedebut != null && datefin != null ) {
 		%>
 
     <hr>
@@ -84,9 +86,11 @@
                 </div>
                 <div class="col-4 text-center justify-content-center align-self-center">
                     <p>Domaine : <%=domaine %></strong></p>
-                    <p>Proprietaire : Selim </p>
+                    <p>Proprietaire : <%=propr %>  </p> 
                 </div>
-                <div class="col-2 align-self-center"><button class="btn btn-primary" type="button" style="width: 150px;height: 36px;">Commander <i class="icon ion-ios-arrow-thin-down"></i></button></div>
+                <div class="col-2 align-self-center"><button class="btn btn-primary" type="button" style="width: 150px;height: 36px;" name="idTroc" value="<%=t.getId()%>">Commander <i class="icon ion-ios-arrow-thin-down"></i></button><br><br>
+         		<a href="localisation.html"><button class="btn btn-success" type="button" style="width: 100px;height: 36px;" name="localisation">Localiser <i class="icon ion-ios-arrow-thin-down"></i></button></a></div>
+         		
             </div>
         </div>
     </div>
@@ -94,7 +98,7 @@
 
 
 		<%
-			}
+			} }
 		%>
 
 		<input type="submit" value="Associer"> <input type="hidden"
