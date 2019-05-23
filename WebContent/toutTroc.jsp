@@ -101,8 +101,6 @@
 			} }
 		%>
 
-		<input type="submit" value="Associer"> <input type="hidden"
-			value="choixasso" name="op">
 	</form>
 </body>
 </html>

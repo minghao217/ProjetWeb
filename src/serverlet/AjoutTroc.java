@@ -109,5 +109,10 @@ public class AjoutTroc extends HttpServlet {
 			request.setAttribute("listeTrocsServ", c.listeTroc());
 			request.getRequestDispatcher("toutTroc.jsp").forward(request, response);
 		}
+		else if(op.equals("historique"))
+		{
+			request.setAttribute("listeHistoServ", c.listeHistorique());
+			request.getRequestDispatcher("listeHisto.jsp").forward(request, response);
+		}
 	}
 }

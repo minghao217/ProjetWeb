@@ -113,5 +113,12 @@ public class Controller {
 		return pp;
 
 	}
+	
+	public Collection<Historique> listeHistorique() {
+		TypedQuery<Historique> req = em.createQuery("from Historique", Historique.class);
+		Collection<Historique> pp = req.getResultList();
+		return pp;
+
+	}
 
 }
