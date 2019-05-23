@@ -21,8 +21,10 @@ public class AjoutTroc extends HttpServlet {
 
 	@EJB
 	private Controller c;
+	
 
 	public AjoutTroc() {
+		
 		// TODO Auto-generated constructor stub
 	}
 
@@ -44,6 +46,8 @@ public class AjoutTroc extends HttpServlet {
 			// response.getWriter().println("<html><body>");
 			// response.getWriter().println("ajout Personne ") ;
 			// response.getWriter().println("</body></html>");
+			
+			String path ="./images/"+ request.getParameter("image"); 
 
 			String duree = request.getParameter("duree");
 			String titre = request.getParameter("titre");
@@ -52,6 +56,8 @@ public class AjoutTroc extends HttpServlet {
 			String etat = request.getParameter("etat");
 			String datedeb = request.getParameter("datedeb");
 			String datefin = request.getParameter("datefin");
+			
+			
 
 			// perso je ne vois pas comment faire pour récupérer les images
 			// String files = request.getParameter("files") ;
@@ -84,7 +90,7 @@ public class AjoutTroc extends HttpServlet {
 //			String name = "aaa";
 
 			try {
-				boolean t = c.ajouterTroc(titre, duree, etat, domaine, date1, date2, name);
+				boolean t = c.ajouterTroc(titre, duree, etat, domaine, date1, date2, name , path);
 
 				if (t) {
 					request.getRequestDispatcher("menu.jsp").forward(request, response);
@@ -127,5 +133,29 @@ public class AjoutTroc extends HttpServlet {
 			request.setAttribute("listeHistoServ", c.listeHistorique());
 			request.getRequestDispatcher("listeHisto.jsp").forward(request, response);
 		}
+		else if(op.equals("commander"))
+		{
+			
+			String idtroc = request.getParameter("cmd");
+			
+			
+			Cookie cookie = null; 
+	        Cookie[] cookies = request.getCookies();
+	        String name=null; 
+	        if(  cookies != null ){  
+	            for (int i = 0; i < cookies.length; i++){
+	               cookie = cookies[i];
+	               if (cookie.getName().equals("name")){
+	            	   name = cookie.getValue(); 
+	               }              
+	            }}
+	        else {}
+	        
+	        c.commander(name,idtroc);
+	        request.getRequestDispatcher("menu.jsp").forward(request, response);
+	        
+			
+		}
+		
 	}
 }

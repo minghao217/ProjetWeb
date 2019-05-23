@@ -34,6 +34,7 @@ public class Troc {
 
 	// a ne pas utiliser
 	private int duree; // duréee maximale du prête
+	
 	private String path ; 
 
 	// private Collection<Creneau> creneau = new ArrayList<Creneau>();

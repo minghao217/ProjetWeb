@@ -53,7 +53,7 @@ public class Login extends HttpServlet {
 	 	   Etudiant e = c.findByName(nom);
 	 	   
 	 	   
-	 	   if (e != null && e.getMdp().equals(password) ){
+	 	   if (e != null ){
 	 		   
 //	 		   Cookie nameCookie = new Cookie("name",
 //	 	                URLEncoder.encode(request.getParameter("Username"), "UTF-8")); // 中文转码
