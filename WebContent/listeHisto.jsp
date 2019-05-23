@@ -23,9 +23,28 @@
 </head>
 <body>
 	<form action="AjoutTroc" method="post">
+	
+	<% String nomConnecte = (String) request.getAttribute("nomconnecte"); %> 
+	    <div class="col-md-12">
+        <h4>Historique de <%=nomConnecte %></h4>
+        <div class="table-responsive">
+
+                
+              <table id="mytable" class="table table-bordred table-striped">
+                   
+                   <thead>
+                   
+                   <th>Troc</th>
+                    <th>Date Debut</th>
+                     <th>Date Fin</th>
+
+                  
+                   </thead>
+    <tbody>
 
 
 		<%
+			
 			Collection<Historique> listeHisto = (Collection<Historique>) request.getAttribute("listeHistoServ");
 			for (Historique t : listeHisto) {
 				//int id = p.getId();
@@ -39,33 +58,27 @@
 				/* 				
 
 								String nomEtudiant = t.getProprio().getNom(); */
+								
+		
+								
+			if (propr.equals(nomConnecte) )
+			{
 			
 		%>
 
-    <hr>
-    <div class="div1">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <p><strong><%=propr %></strong></p>
-                    <p>Vous avez mis le Produit  : <%=troc %></strong></p>
-                   
-                </div>
-                <div class="col-4 text-center justify-content-center align-self-center">
- 				<p>De <%=datedebut %> <br> -> jusqu'a : <%=datefin %> </p>
-                </div>
-
-         		
-            </div>
-        </div>
-    </div>
-    <hr>
+    <tr>
+    <td><%=troc %></td>
+    <td><%=datedebut %></td>
+    <td><%=datefin %></td>
+	</tr>
 
 
 		<%
-			} 
+			} } 
 		%>
-
-	</form>
+		    </tbody>
+    
+</table>
+</form>
 </body>
 </html>

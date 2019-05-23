@@ -87,7 +87,7 @@ public class AjoutTroc extends HttpServlet {
 				boolean t = c.ajouterTroc(titre, duree, etat, domaine, date1, date2, name);
 
 				if (t) {
-					request.getRequestDispatcher("menu.html").forward(request, response);
+					request.getRequestDispatcher("menu.jsp").forward(request, response);
 				} else {
 					request.getRequestDispatcher("register.html").forward(request, response);
 				}
@@ -111,6 +111,19 @@ public class AjoutTroc extends HttpServlet {
 		}
 		else if(op.equals("historique"))
 		{
+			Cookie cookie = null; 
+	        Cookie[] cookies = request.getCookies();
+	        String name=null; 
+	        if(  cookies != null ){  
+	            for (int i = 0; i < cookies.length; i++){
+	               cookie = cookies[i];
+	               if (cookie.getName().equals("name")){
+	            	   name = cookie.getValue(); 
+	               }              
+	            }}
+	        else {}
+	        
+	        request.setAttribute("nomconnecte", name);
 			request.setAttribute("listeHistoServ", c.listeHistorique());
 			request.getRequestDispatcher("listeHisto.jsp").forward(request, response);
 		}

@@ -34,6 +34,7 @@ public class Troc {
 
 	// a ne pas utiliser
 	private int duree; // duréee maximale du prête
+	private String path ; 
 
 	// private Collection<Creneau> creneau = new ArrayList<Creneau>();
 
@@ -170,6 +171,14 @@ public class Troc {
 
 	public void setDatefin(Date datefin) {
 		this.datefin = datefin;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 }
