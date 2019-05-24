@@ -68,6 +68,7 @@
 				Date datefin = t.getDatefin();
 				String domaine = t.getDomaine().getNom();
 				String propr = t.getProprio().getNom();
+				String path = t.getPath();
 				
 				/* 				
 
@@ -79,7 +80,7 @@
     <div class="div1">
         <div class="container">
             <div class="row">
-                <div class="col-2 d-inline float-none align-self-center"><img class="border rounded" src="http://simpleicon.com/wp-content/uploads/account.png" style="width: 128px;"></div>
+                <div class="col-2 d-inline float-none align-self-center"><img class="border rounded" src="<%=path %>" style="width: 128px;"></div>
                 <div class="col-3">
                     <p><strong><%=titre %></strong></p>
                     <p>Disponibilité  :<br> <%=datedebut %> <br> <%=datefin %> </p>
@@ -88,7 +89,9 @@
                     <p>Domaine : <%=domaine %></strong></p>
                     <p>Proprietaire : <%=propr %>  </p> 
                 </div>
-                <div class="col-2 align-self-center"><button class="btn btn-primary" type="button" style="width: 150px;height: 36px;" name="idTroc" value="<%=t.getId()%>">Commander <i class="icon ion-ios-arrow-thin-down"></i></button><br><br>
+                
+              <div class="col-2 align-self-center"> <a href="http://localhost:8080/En7/AjoutTroc?op=commander"><button class="btn btn-primary" type="button" style="width: 150px;height: 36px;" name="idTroc" value="<%=t.getId()%>">Commander <i class="icon ion-ios-arrow-thin-down"></i></button></a><br><br>
+         		<input type="hidden" name="cmd" value="<%=t.getId()%>">
          		<a href="localisation.html"><button class="btn btn-success" type="button" style="width: 100px;height: 36px;" name="localisation">Localiser <i class="icon ion-ios-arrow-thin-down"></i></button></a></div>
          		
             </div>
@@ -101,8 +104,6 @@
 			} }
 		%>
 
-		<input type="submit" value="Associer"> <input type="hidden"
-			value="choixasso" name="op">
 	</form>
 </body>
 </html>

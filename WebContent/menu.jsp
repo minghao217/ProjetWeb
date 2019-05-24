@@ -70,7 +70,7 @@
 
 
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-car fa-lg"></i> Consulter Historique
+				<a href="http://localhost:8080/En7/AjoutTroc?op=historique"><i class="fa fa-car fa-lg"></i> Consulter Historique
 					<span class="arrow"></span></a>
 			</li>
 			<ul class="sub-menu collapse" id="new">

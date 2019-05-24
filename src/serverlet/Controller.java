@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
-import enumerations.Etat;
 import model.Adresse;
 import model.Domaine;
 import model.Etudiant;
@@ -69,22 +68,23 @@ public class Controller {
 	}
 
 	public boolean ajouterTroc(String titre, String duree, String etat, String domaine, Date datedeb, Date datefin,
-			String name) throws ParseException {
+			String name, String path) throws ParseException {
 		// int dureeReel = Integer.parseInt(duree);
-		String etatR = etat ; 
-		// Troc troc = new Troc(titre,dureeReel,etatReel) ;
+		String etatR = etat;
+
 		Date datedebut = datedeb;
 		Date datefiin = datefin;
 
 		Troc troc = new Troc(titre, datedebut, datefiin, etatR);
+		troc.setPath(path);
 
 		TypedQuery<Domaine> req = em.createQuery("select dom from Domaine dom " + "where dom.nom = '" + domaine + "'",
 				Domaine.class);
 
 		Domaine dom1 = null;
 
-		Etudiant proprietaire = findByName(name); 
-		
+		Etudiant proprietaire = findByName(name);
+
 		List<Domaine> res = req.getResultList();
 		if (res.size() != 0) {
 			dom1 = res.get(0);
@@ -114,4 +114,51 @@ public class Controller {
 
 	}
 
+	public Collection<Historique> listeHistorique() {
+		TypedQuery<Historique> req = em.createQuery("from Historique", Historique.class);
+		Collection<Historique> pp = req.getResultList();
+		return pp;
+
+	}
+
+	// @PostConstruct
+	// public void initialisation(){
+	// Domaine d;
+	//
+	// d = new Domaine("Musique","Musique");
+	// em.persist(d);
+	// d = new Domaine("Sport","Sport");
+	// em.persist(d);
+	// d = new Domaine("Services","Services");
+	// em.persist(d);
+	// d = new Domaine("Jeu","Jeu");
+	// em.persist(d);
+	// d = new Domaine("Divers","Divers");
+	// em.persist(d);
+	//
+	// Etudiant e = new
+	// Etudiant("test","test","test@gmail.com","0755555555","./images/test.jpg");
+	// em.persist(e);
+	// }
+
+	public void commander(String nomDemandeur, String idTroc) {
+		
+//		int idt = Integer.parseInt(idTroc);
+//		Troc t = em.find(Troc.class, idt);
+		
+		TypedQuery<Troc> req = em.createQuery("select t from Troc t " + "where t.id = '" + idTroc + "'",
+				Troc.class);
+		List<Troc> res = req.getResultList();
+		if (res.size() != 0) {
+		Troc t = res.get(0);
+
+		t.setDatedebut(null);
+		t.setDatefin(null);
+		em.persist(t);
+		Etudiant benif = em.find(Etudiant.class, "select c from Etudiant c where c.nom = " + nomDemandeur);
+		Historique hist = new Historique(t, benif, t.getProprio(), t.getDatedebut(), t.getDatefin());
+		em.persist(hist);
+		}
+
+	}
 }

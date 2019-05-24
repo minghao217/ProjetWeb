@@ -30,7 +30,6 @@ public class Historique implements Serializable {
 	private Etudiant proprio;
 	private Date datedebut;
 	private Date datefin;
-	private boolean etatDeroulement;
 	private String description;
 
 	public Historique() {
@@ -91,13 +90,6 @@ public class Historique implements Serializable {
 		this.datefin = datefin;
 	}
 
-	public boolean isEtatDeroulement() {
-		return etatDeroulement;
-	}
-
-	public void setEtatDeroulement(boolean etatDeroulement) {
-		this.etatDeroulement = etatDeroulement;
-	}
 
 	public String getDescription() {
 		return description;
