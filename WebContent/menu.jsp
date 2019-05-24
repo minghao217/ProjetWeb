@@ -88,7 +88,8 @@
 		</ul>
 	</div>
 </div>
-
+<div class = "imgdiv">
+	<h1>Welcome </h1>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 	font-family: verdana;
 	font-size: 12px;
 	font-weight: 200;
-	background-color: #2e353d;
+	background-color: #149ccf;
 	position: fixed;
 	top: 0px;
 	width: 300px;
@@ -15,7 +15,7 @@ mark {
 	color : red; 
 }
 .nav-side-menu .brand {
-	background-color: #23282e;
+	background-color: #a40000;
 	line-height: 50px;
 	display: block;
 	text-align: center;
@@ -121,6 +121,20 @@ mark {
 	-o-transition: all 1s ease;
 	-ms-transition: all 1s ease;
 	transition: all 1s ease;
+}
+.imgdiv {
+	width:1500px;
+	height:726px;
+    padding:100px; 
+    text-align: center;
+    position:relative;
+    left:300px;
+    overflow: disvisible;
+    background: url(../images/index.jpeg);
+    background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
 }
 
 @media ( max-width : 767px) {
